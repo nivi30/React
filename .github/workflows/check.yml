@@ -19,7 +19,7 @@ jobs:
         PROD_VALUE: true
       run: |
         npm install
-        echo "::set-env name=REACT_APP_PROD::$PROD_VALUE"
+        echo "REACT_APP_PROD=$PROD_VALUE" >> $GITHUB_ENV
         npm run build --if-present
     - name: deploy
       uses: amondnet/vercel-action@v20

@@ -20,5 +20,8 @@ jobs:
       uses: amondnet/vercel-action@v20
       with:
         vercel-token: ${{ secrets.TOKEN_LOGIN }}
+    - name: check deployment status
+      run: curl --retry 10 --retry-delay 5 --retry-connrefused https://react-nivi30.vercel.app/
+      timeout-minutes: 5
         
 

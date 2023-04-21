@@ -16,10 +16,10 @@ jobs:
         node-version: '16.x'
     - name: install,run
       env:
-        React_App_Production: true
+        PROD_VALUE: true
       run: |
-        echo "$React_App_Production"
         npm install
+        echo "::set-env name=REACT_APP_PROD::$PROD_VALUE"
         npm run build --if-present
     - name: deploy
       uses: amondnet/vercel-action@v20
